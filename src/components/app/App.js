@@ -86,7 +86,7 @@ function App() {
     case 1:
       currentClass = (
         <ClassRand
-          description="C'est un démoniste ! t'as pas de l'eau stp ?"
+          description="C'est un mage ! t'as pas de l'eau stp ?"
           image={Mage}
         />
       );
