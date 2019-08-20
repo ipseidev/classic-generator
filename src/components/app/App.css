@@ -24,3 +24,19 @@
 .MuiChip-label {
   font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .MuiAvatar-img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .MuiAvatar-root {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .MuiChip-label {
+    font-size: 12px;
+  }
+}
