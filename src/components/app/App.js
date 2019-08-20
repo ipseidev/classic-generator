@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,6 +22,7 @@ import Default from "../../assets/default.png";
 
 import Navbar from "../Navigation/Navbar";
 import ClassRand from "../classeRand/classeRand";
+import ProgressBar from "../progressBar/progressBar";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -51,7 +52,8 @@ function App() {
   const [state, setstate] = useState({
     currentRand: 0,
     countRand: 0,
-    loading: false
+    loading: false,
+    isButtonDisable: false
   });
 
   // State pour les réglages du random
@@ -199,6 +201,28 @@ function App() {
       );
       break;
   }
+
+  useEffect(() => {
+    let cpt = 0;
+    classesList.map(classe => {
+      console.log(cpt);
+      if (activeClasses[classe] === false) {
+        cpt++;
+        if (cpt >= 7) {
+          setstate({
+            ...state,
+            isButtonDisable: true
+          });
+        } else {
+          setstate({
+            ...state,
+            isButtonDisable: false
+          });
+        }
+      }
+    });
+  }, [activeClasses]);
+
   return (
     <div className="App">
       <Navbar />
@@ -316,18 +340,22 @@ function App() {
             {currentClass}
             <div>
               {state.loading ? (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  className={classes.button}
-                  onClick={startRand}
-                >
-                  <CircularProgress
-                    className={classes.progress}
-                    color="secondary"
-                  />
-                </Button>
+                <div>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button}
+                    onClick={startRand}
+                    disabled
+                  >
+                    <CircularProgress
+                      className={classes.progress}
+                      color="secondary"
+                    />
+                  </Button>
+                  <ProgressBar />
+                </div>
               ) : (
                 <Button
                   variant="contained"
@@ -335,6 +363,7 @@ function App() {
                   size="large"
                   className={classes.button}
                   onClick={startRand}
+                  disabled={state.isButtonDisable}
                 >
                   I'm Ready !
                 </Button>
