@@ -54,7 +54,7 @@ function App() {
   };
 
   const rand = () => {
-    if (compteur < 20) {
+    if (compteur < 60) {
       setTimeout(() => {
         currentRand = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
 
