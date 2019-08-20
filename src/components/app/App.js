@@ -172,7 +172,7 @@ function App() {
                 className={classes.button}
                 onClick={startRand}
               >
-                GO !
+                I'm Ready !
               </Button>
             </div>
           </Paper>
