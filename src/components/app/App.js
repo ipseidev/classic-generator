@@ -227,7 +227,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Grid container spacing={3} justify="center">
-        <Grid item xs={6} md={4} lg={2} xl={2}>
+        <Grid item xs={10} md={4} lg={2} xl={2}>
           <Paper className={classes.paper}>
             <h1>Réglages</h1>
             <h2>&#60;Irae&#62;</h2>
