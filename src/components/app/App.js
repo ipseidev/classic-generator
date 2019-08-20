@@ -143,7 +143,7 @@ function App() {
       currentClass = (
         <ClassRand
           description="C'est un Guerrier ! Merci de te sacrifier pour la guilde.."
-          image={Priest}
+          image={War}
         />
       );
       break;
