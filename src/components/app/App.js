@@ -149,10 +149,7 @@ function App() {
       break;
     case "Prêtre":
       currentClass = (
-        <ClassRand
-          description="C'est un Prêtre ! gros pédophile va !"
-          image={Priest}
-        />
+        <ClassRand description="C'est un Prêtre ! Amen.." image={Priest} />
       );
       break;
     case "Druide":
